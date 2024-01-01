@@ -1,0 +1,49 @@
+
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 300px;">
+        <div class="card-body">
+            <h5 class="card-title text-center"> Login</h5>
+
+            <form>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" id="username" class="form-control" [(ngModel)]="username" [ngModelOptions]="{standalone:true}" />
+                </div>
+  
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" id="password" class="form-control" [(ngModel)]="password" [ngModelOptions]="{standalone:true}" />
+                </div>
+  
+                <button type="button" class="btn btn-primary btn-block d-block mx-auto" (click)="save()">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="container  mt-5">
+    <h4>Login  Data Table </h4>
+<table class="table mt-5">
+    <thead>
+        <h5 *ngIf="!isResultLoaded">Loading..(To Read Data)</h5>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">UserName</th>
+        <th scope="col">Password</th>
+        <th scope="col">Option</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let EmployeeItem of EmployeeArray">
+        <th scope="row">{{EmployeeItem.id}}</th>
+        <td>{{EmployeeItem.username}}</td>
+        <td>{{EmployeeItem.password}}</td>
+        <td>
+            <button type="button" class="btn btn-success btn-block m-1 " (click)="Update(EmployeeItem)">Update</button>
+            <button type="button" class="btn btn-danger btn-block " (click)="Delete(EmployeeItem)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
